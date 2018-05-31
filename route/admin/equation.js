@@ -10,11 +10,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/400_100', (req, res) => {
+    console.log("post success", req)
     return Promise.resolve()
         .then(() => {
             const { img } = req.body
-            if(!img || img.length != 40000)
-                throw "missing array img or number of element in array not equal 40000"
+            if(!img)
+                throw "missing array img"
             return Equation.create({
                 img_400_100_grey: img
             });
