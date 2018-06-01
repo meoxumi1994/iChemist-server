@@ -5,12 +5,10 @@ const jwt_express = require('express-jwt');
 const Equation = require('../../model/Equation')
 
 router.get('/', (req, res) => {
-    console.log("get success")
     res.status(200).json({ status: "success" });
 })
 
 router.post('/400_100', (req, res) => {
-    console.log("post success", req)
     return Promise.resolve()
         .then(() => {
             const { img } = req.body

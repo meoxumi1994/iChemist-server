@@ -10,6 +10,7 @@ const UserSchema = new Schema({
     id_from_3th: { type: String },
     user_infor_response_from_3th: { type: Schema.Types.Mixed },
     trace: { type: Schema.Types.Mixed },
+    isAdmin: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model("User", UserSchema);
