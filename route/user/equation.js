@@ -14,11 +14,33 @@ router.use(
   })
 );
 
+router.post('/upload_image', (req, res) => {
+    return Promise.resolve()
+        .then(() => {
+            const { img, height, width } = req.body
+            if(!img)
+                throw "missing array img"
+            return Equation.create({
+                img_grey: img,
+                height: height,
+                width: width,
+                create_id: req.user._id
+            });
+        })
+        .then(() => {
+            res.status(200).json({ status: "success" });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(201).json({ err: err });
+        });
+
+})
+
 router.post('/800_200', (req, res) => {
     return Promise.resolve()
         .then(() => {
             const { img } = req.body
-            console.log(req.user)
             if(!img)
                 throw "missing array img"
             return Equation.create({

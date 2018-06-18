@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const EquationSchema = new Schema({
     img_400_100_grey: { type: String },
-    label: "",
+    img_grey: { type: String },
+    width: { type: Number },
+    height: { type: Number },
+    label: { type: String },
     create_id: { type: String },
     img_800_200_grey: { type: String },
 });
